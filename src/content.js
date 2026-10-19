@@ -259,15 +259,15 @@ that comes your way.`,
   openWhenHeading: 'For the moments when you need a little something.',
   openWhenMessages: [
     {
-      title: 'Open when you need a smile 😊',
-      message: `Heyy meri betu ❤️
+  title: 'Open when you need a smile 😊',
+  message: `Heyy meri betu ❤️
 
-Smile kar na thoda sa, please? 🥹 Pata hai, teri smile kitni pyari hai? And how you smile when our eyes meet, bhyii, I literally forget what I was thinking.
+Smile kar na thoda sa, please? 🥹 Pata hai, I genuinely adore your smile. The way your eyes light up when you smile, and especially the way you smile when our eyes meet… bhyii, it's literally the prettiest thing ever. 😭❤️
 
-Yaad hai jab hum Laxmi Nagar gaye the before the fest, and tu baar-baar different dresses try karke mujhse pooch rahi thi ki kaisi lag rahi hai? 😭 Betu, tu har dress mein pyari lag rahi thi, I just didn't know how to explain it to you.
+I wish you could see yourself through my eyes, just once, to understand how beautiful you look when you're happy. Teri smile has this little magic that makes my day better without you even trying. 🧸
 
-Bas aise hi haste rehna, okay? Teri smile genuinely makes things better. And if you're smiling right now after reading this, then mission successful. ❤️🧸`,
-    },
+Bas aise hi haste rehna, meri betu. And if you're smiling right now, then mission successful. ❤️🫶🏻`
+},
     {
       title: "Open when you're having a difficult day 🌧️",
       message: `Hey Khushi ❤️
