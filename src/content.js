@@ -151,43 +151,13 @@ For now, just keep smiling and enjoy your birthday, my betu. ❤️
   // 4. To remove a photo, delete its entry from this array
   scrapbookHeading: 'A few little moments worth keeping close 📸',
   photos: [
-    {
-      id: 1,
-      src: '/photos/ph1.jpg',   // Replace with your photo
-      caption: 'My Betu, always.',
-      date: '',                             // Optional, e.g. 'March 2025'
-    },
-    {
-      id: 2,
-      src: '/photos/ph2.jpg',
-      caption: 'Beautiful, effortlessly 🌷',
-      date: '',
-    },
-    {
-      id: 3,
-      src: '/photos/ph3.jpg',
-      caption: 'My favourite smile 💗',
-      date: '',
-    },
-    {
-      id: 4,
-      src: '/photos/ph4.jpg',
-      caption: 'My favourite person',
-      date: '',
-    },
-    {
-      id: 5,
-      src: '/photos/ph5.jpg',
-      caption: "My favourite kind of chaos ❤️",
-      date: '',
-    },
-    {
-      id: 6,
-      src: '/photos/ph6.jpg',
-      caption: 'My favourite kind of eye contact',
-      date: '',
-    },
-  ],
+  { id: 1, src: '/photos/ph1.jpeg', caption: 'My Betu, always.', date: '' },
+  { id: 2, src: '/photos/ph2.jpeg', caption: 'Beautiful, effortlessly 🌷', date: '' },
+  { id: 3, src: '/photos/ph3.jpeg', caption: 'My favourite smile 💗', date: '' },
+  { id: 4, src: '/photos/ph4.jpeg', caption: 'My favourite person', date: '' },
+  { id: 5, src: '/photos/ph5.jpeg', caption: 'My favourite kind of chaos ❤️', date: '' },
+  { id: 6, src: '/photos/ph6.jpeg', caption: 'My favourite kind of eye contact', date: '' },
+],
 
   // -----------------------------------------------------------
   // 💌 PERSONAL LETTER
