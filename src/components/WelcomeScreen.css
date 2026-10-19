@@ -1,0 +1,590 @@
+/* ============================================================
+   WELCOME SCREEN STYLES
+   Romantic midnight purple universe with twinkling stars,
+   floating hearts, soft moon glow, and glowing action button.
+   ============================================================ */
+
+.welcome-screen {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 80% 20%, #2d1b4e 0%, #1a1035 55%, #0d061c 100%);
+  overflow: hidden;
+  padding: 24px;
+  box-sizing: border-box;
+  color: #faf3e8;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.welcome-screen.is-leaving {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   MOON & GLOW (Top Right)
+   ------------------------------------------------------------ */
+.welcome-moon-container {
+  position: absolute;
+  top: 6%;
+  right: 8%;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.welcome-moon-halo {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 83, 0.22) 0%,
+    rgba(212, 168, 83, 0.08) 42%,
+    rgba(45, 27, 78, 0) 72%
+  );
+  filter: blur(8px);
+  animation: moonPulse 6s ease-in-out infinite alternate;
+}
+
+.welcome-moon-crescent {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  box-shadow: -9px 9px 0 2px #faf3e8, 0 0 28px rgba(212, 168, 83, 0.55);
+  transform: rotate(-18deg);
+  opacity: 0.92;
+}
+
+@keyframes moonPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------------------------
+   STARS CONTAINER & TWINKLE
+   ------------------------------------------------------------ */
+.welcome-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.welcome-star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 12px rgba(212, 168, 83, 0.4);
+  animation-name: starTwinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+    box-shadow: 0 0 8px #ffffff, 0 0 16px rgba(212, 168, 83, 0.8);
+  }
+}
+
+/* ------------------------------------------------------------
+   FLOATING HEARTS
+   ------------------------------------------------------------ */
+.welcome-hearts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.welcome-heart {
+  position: absolute;
+  bottom: -40px;
+  color: #c9a0a0;
+  opacity: 0.45;
+  filter: drop-shadow(0 0 8px rgba(232, 93, 117, 0.35));
+  animation: heartDrift linear infinite;
+  will-change: transform, opacity;
+}
+
+.welcome-heart svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+@keyframes heartDrift {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(0.85);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(24px) rotate(12deg) scale(1);
+    opacity: 0.5;
+  }
+  85% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(-20px) rotate(-10deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   GENTLE FLOATING PARTICLES (Stardust)
+   ------------------------------------------------------------ */
+.welcome-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.welcome-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #d4a853 0%, rgba(212, 168, 83, 0.1) 80%);
+  box-shadow: 0 0 8px rgba(212, 168, 83, 0.5);
+  animation: particleFloat ease-in-out infinite alternate;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate(16px, -24px);
+    opacity: 0.35;
+  }
+}
+
+/* ------------------------------------------------------------
+   MAIN CONTENT CARD
+   ------------------------------------------------------------ */
+.welcome-content {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px;
+  animation: contentFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  margin-bottom: 24px;
+  border-radius: 9999px;
+  background: rgba(45, 27, 78, 0.6);
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  backdrop-filter: blur(8px);
+  color: #d4a853;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 0 16px rgba(212, 168, 83, 0.15);
+  animation: badgeShimmer 4s ease-in-out infinite alternate;
+}
+
+@keyframes badgeShimmer {
+  0% {
+    border-color: rgba(212, 168, 83, 0.25);
+    box-shadow: 0 0 12px rgba(212, 168, 83, 0.1);
+  }
+  100% {
+    border-color: rgba(212, 168, 83, 0.6);
+    box-shadow: 0 0 22px rgba(212, 168, 83, 0.3);
+  }
+}
+
+.welcome-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.85rem, 5.5vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #faf3e8;
+  margin: 0 0 20px 0;
+  text-shadow: 0 4px 28px rgba(212, 168, 83, 0.22), 0 2px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: -0.01em;
+}
+
+.welcome-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+  line-height: 1.6;
+  color: #c9a0a0;
+  margin: 0 0 36px 0;
+  max-width: 520px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------------------------------------------
+   CENTRAL GLOWING HEART STAGE & ANIMATIONS
+   ------------------------------------------------------------ */
+.welcome-heart-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 0 28px 0;
+  width: 180px;
+  height: 180px;
+}
+
+/* Radiant pulsating aura rings */
+.heart-aura-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1.5px solid rgba(255, 117, 140, 0.35);
+  animation: auraPulse 3.6s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.heart-aura-ring.ring-1 {
+  width: 140px;
+  height: 140px;
+  animation-delay: 0s;
+}
+
+.heart-aura-ring.ring-2 {
+  width: 180px;
+  height: 180px;
+  animation-delay: 1.2s;
+  border-color: rgba(212, 168, 83, 0.3);
+}
+
+.heart-aura-ring.ring-3 {
+  width: 220px;
+  height: 220px;
+  animation-delay: 2.4s;
+  border-color: rgba(232, 196, 196, 0.2);
+}
+
+@keyframes auraPulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Glowing central heart interactive button */
+.glowing-heart-btn {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glowing-heart-svg-wrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: gentleHeartbeat 2.4s ease-in-out infinite;
+}
+
+.glowing-heart-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 16px rgba(255, 75, 110, 0.65)) drop-shadow(0 0 32px rgba(212, 168, 83, 0.45));
+  transition: filter 0.35s ease;
+}
+
+@keyframes gentleHeartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.08);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+/* Hover and Focus States */
+.glowing-heart-btn:hover .glowing-heart-svg-wrap {
+  transform: scale(1.14);
+}
+
+.glowing-heart-btn:hover .glowing-heart-svg {
+  filter: drop-shadow(0 0 24px rgba(255, 75, 110, 0.9)) drop-shadow(0 0 45px rgba(212, 168, 83, 0.7));
+}
+
+.glowing-heart-btn:focus-visible {
+  outline: 3px solid #d4a853;
+  outline-offset: 12px;
+}
+
+/* Floating sparkle icons around heart */
+.heart-sparkle {
+  position: absolute;
+  color: #ffd56b;
+  font-size: 16px;
+  pointer-events: none;
+  animation: sparkleOrbit 3s ease-in-out infinite alternate;
+}
+
+.sparkle-tl { top: -4px; left: -2px; animation-delay: 0.2s; }
+.sparkle-tr { top: 0px; right: -4px; animation-delay: 1.1s; font-size: 14px; }
+.sparkle-br { bottom: 6px; right: -2px; animation-delay: 0.7s; }
+.sparkle-bl { bottom: 4px; left: 0px; animation-delay: 1.8s; font-size: 13px; }
+
+@keyframes sparkleOrbit {
+  0% { transform: translateY(0) scale(0.9); opacity: 0.6; }
+  100% { transform: translateY(-6px) scale(1.2); opacity: 1; }
+}
+
+/* Prompt text under the heart */
+.heart-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  color: #faf3e8;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 14px rgba(212, 168, 83, 0.4), 0 2px 6px rgba(0, 0, 0, 0.6);
+  animation: promptBob 2.4s ease-in-out infinite;
+}
+
+.prompt-arrow {
+  display: inline-block;
+  animation: bounceDown 1.8s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes promptBob {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* ------------------------------------------------------------
+   HEART OPENING TRANSITION ANIMATION
+   ------------------------------------------------------------ */
+.welcome-screen.is-opening {
+  pointer-events: none;
+}
+
+.welcome-screen.is-opening .glowing-heart-svg-wrap {
+  animation: heartOpeningExpand 0.95s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+}
+
+.welcome-screen.is-opening .welcome-tagline,
+.welcome-screen.is-opening .heart-prompt,
+.welcome-screen.is-opening .welcome-badge,
+.welcome-screen.is-opening .heart-aura-ring {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+@keyframes heartOpeningExpand {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 16px rgba(255, 75, 110, 0.65));
+  }
+  35% {
+    transform: scale(1.35) rotate(-3deg);
+    filter: drop-shadow(0 0 45px rgba(255, 75, 110, 1)) drop-shadow(0 0 80px rgba(212, 168, 83, 0.9));
+  }
+  70% {
+    transform: scale(3.5) rotate(4deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(8);
+    opacity: 0;
+  }
+}
+
+.heart-opening-burst {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.burst-flash {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(255, 230, 240, 0.95) 0%, rgba(212, 168, 83, 0.6) 40%, transparent 75%);
+  animation: flashBurst 0.95s ease-out forwards;
+}
+
+@keyframes flashBurst {
+  0% { opacity: 0; transform: scale(0.2); }
+  50% { opacity: 0.85; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE DESIGN (Mobile First)
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+  .welcome-screen {
+    padding: 20px 16px;
+  }
+
+  .welcome-moon-container {
+    top: 4%;
+    right: 4%;
+    width: 150px;
+    height: 150px;
+  }
+
+  .welcome-moon-halo {
+    width: 170px;
+    height: 170px;
+  }
+
+  .welcome-moon-crescent {
+    width: 44px;
+    height: 44px;
+    box-shadow: -7px 7px 0 2px #faf3e8, 0 0 20px rgba(212, 168, 83, 0.5);
+  }
+
+  .welcome-content {
+    padding: 20px 8px;
+  }
+
+  .welcome-tagline {
+    margin-bottom: 16px;
+  }
+
+  .welcome-subtext {
+    margin-bottom: 28px;
+  }
+
+  .welcome-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 15px 24px;
+  }
+}
+
+/* ------------------------------------------------------------
+   PREFERS REDUCED MOTION
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-screen,
+  .welcome-content,
+  .welcome-btn {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .welcome-screen.is-leaving {
+    opacity: 0;
+  }
+
+  .welcome-star {
+    animation: none !important;
+    opacity: 0.6 !important;
+  }
+
+  .welcome-heart {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+
+  .welcome-particle {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+
+  .welcome-moon-halo,
+  .welcome-badge,
+  .welcome-btn::after {
+    animation: none !important;
+  }
+}

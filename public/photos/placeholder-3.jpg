@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#231a47"/>
+      <stop offset="50%" stop-color="#36295e"/>
+      <stop offset="100%" stop-color="#4e3b7b"/>
+    </linearGradient>
+    <radialGradient id="glow3" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#b8a9c9" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#b8a9c9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#skyGrad3)"/>
+  <circle cx="300" cy="260" r="180" fill="url(#glow3)"/>
+
+  <!-- Stars -->
+  <g fill="#d4a853" opacity="0.8">
+    <circle cx="150" cy="130" r="3"/>
+    <circle cx="470" cy="150" r="3"/>
+    <circle cx="110" cy="380" r="2.5"/>
+    <circle cx="490" cy="390" r="3.5"/>
+  </g>
+
+  <!-- Bouquet / Flower Motif -->
+  <g transform="translate(260, 190)" fill="#faf3e8">
+    <circle cx="40" cy="40" r="24" fill="#e8c4c4" opacity="0.9"/>
+    <circle cx="20" cy="50" r="18" fill="#b8a9c9" opacity="0.9"/>
+    <circle cx="60" cy="50" r="18" fill="#e85d75" opacity="0.85"/>
+    <circle cx="40" cy="40" r="10" fill="#ffd56b"/>
+    <path d="M40 70 Q40 100 35 120" stroke="#a0c1a0" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M40 85 Q55 80 58 72" stroke="#a0c1a0" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <text x="300" y="365" font-family="'Playfair Display', Georgia, serif" font-size="28" fill="#faf3e8" font-weight="600" text-anchor="middle" letter-spacing="1">
+    Memory Three 🌷
+  </text>
+  <text x="300" y="405" font-family="'Inter', sans-serif" font-size="16" fill="#b8a9c9" text-anchor="middle">
+    A little something that made us smile
+  </text>
+  <text x="300" y="445" font-size="22" text-anchor="middle">
+    🌿 🌷 🌿
+  </text>
+</svg>

@@ -1,0 +1,589 @@
+/* ============================================================
+   FINAL SURPRISE STYLES
+   Animated 3D Gift Box Reveal with Hearts, Confetti & Card
+   ============================================================ */
+
+.surprise-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 20px 100px 20px;
+  background: radial-gradient(circle at 50% 30%, #351f5c 0%, #1e1138 55%, #140b26 100%);
+  color: #faf3e8;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.surprise-ambient-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.12) 0%, rgba(232, 93, 117, 0.08) 40%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.surprise-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.surprise-header {
+  text-align: center;
+  margin-bottom: 36px;
+  padding: 0 16px;
+}
+
+.surprise-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  color: #faf3e8;
+  margin-bottom: 12px;
+  line-height: 1.25;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.surprise-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: #b8a9c9;
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   GIFT STAGE & INTERACTIVE BOX
+   ============================================================ */
+
+.gift-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+  perspective: 1000px;
+}
+
+.gift-box-wrapper {
+  position: relative;
+  width: 250px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gift-box-wrapper.is-closed:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.gift-box-wrapper.is-closed:focus-visible {
+  outline: 3px solid #d4a853;
+  outline-offset: 12px;
+  border-radius: 8px;
+}
+
+/* ------------------------------------
+   GIFT LID & BOW
+   ------------------------------------ */
+.gift-lid {
+  position: absolute;
+  top: 14px;
+  width: 270px;
+  height: 52px;
+  background: linear-gradient(145deg, #442475 0%, #2d184f 55%, #200f38 100%);
+  border-radius: 6px 6px 3px 3px;
+  box-shadow: 
+    0 -3px 8px rgba(255, 255, 255, 0.1),
+    0 8px 18px rgba(0, 0, 0, 0.45);
+  z-index: 10;
+  transform-origin: 10% 20%;
+  transition: all 0.75s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+/* Lip edge of the lid */
+.lid-lip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 3px 3px;
+}
+
+/* Horizontal Ribbon across Lid */
+.lid-ribbon-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 100%;
+  background: linear-gradient(90deg, #d4a853 0%, #fff1ce 50%, #d4a853 100%);
+  box-shadow: 0 0 8px rgba(212, 168, 83, 0.4);
+}
+
+/* Ribbon Bow */
+.ribbon-bow {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 12;
+}
+
+.bow-knot {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #fff1ce 20%, #d4a853 75%, #a87d2c 100%);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  z-index: 3;
+}
+
+.bow-loop {
+  position: absolute;
+  top: -6px;
+  width: 38px;
+  height: 28px;
+  background: linear-gradient(135deg, #f5d47e 0%, #d4a853 60%, #b88628 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.bow-loop-left {
+  left: 4px;
+  border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%;
+  transform-origin: 90% 80%;
+  transform: rotate(-25deg);
+}
+
+.bow-loop-right {
+  right: 4px;
+  border-radius: 40% 60% 60% 40% / 60% 60% 40% 40%;
+  transform-origin: 10% 80%;
+  transform: rotate(25deg);
+}
+
+.bow-tail {
+  position: absolute;
+  bottom: -16px;
+  width: 14px;
+  height: 24px;
+  background: linear-gradient(to bottom, #d4a853, #b88628);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bow-tail-left {
+  left: 20px;
+  transform: rotate(28deg);
+  border-radius: 2px;
+}
+
+.bow-tail-right {
+  right: 20px;
+  transform: rotate(-28deg);
+  border-radius: 2px;
+}
+
+/* ------------------------------------
+   GIFT BODY & CROSS RIBBON
+   ------------------------------------ */
+.gift-body {
+  position: relative;
+  width: 250px;
+  height: 165px;
+  background: linear-gradient(145deg, #371d60 0%, #261244 60%, #1a0b30 100%);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  z-index: 5;
+}
+
+.box-highlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Cross pattern ribbons */
+.ribbon-vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  background: linear-gradient(90deg, #d4a853 0%, #fff1ce 50%, #d4a853 100%);
+  box-shadow: 0 0 10px rgba(212, 168, 83, 0.35);
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.ribbon-horizontal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 48%;
+  transform: translateY(-50%);
+  height: 36px;
+  background: linear-gradient(180deg, #d4a853 0%, #fff1ce 50%, #d4a853 100%);
+  box-shadow: 0 0 10px rgba(212, 168, 83, 0.35);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* ------------------------------------
+   OPENED STATE ANIMATIONS
+   ------------------------------------ */
+.gift-box-wrapper.is-opened {
+  cursor: default;
+}
+
+/* Lid lifts off upward and rotates */
+.gift-box-wrapper.is-opened .gift-lid {
+  transform: translateY(-115px) rotate(-18deg) scale(1.04);
+  opacity: 0.95;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Tap Hint */
+.tap-hint-badge {
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(45, 27, 78, 0.85);
+  border: 1px solid rgba(212, 168, 83, 0.5);
+  color: #faf3e8;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  animation: float-hint 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float-hint {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6px); }
+}
+
+.tap-hint-pulse {
+  width: 8px;
+  height: 8px;
+  background: #e85d75;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #e85d75;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+/* ============================================================
+   CONFETTI & HEARTS BURST
+   ============================================================ */
+
+.burst-container {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.burst-particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  user-select: none;
+  animation: shoot-particle 2.4s cubic-bezier(0.12, 0.8, 0.3, 1) forwards;
+  animation-delay: var(--particle-delay, 0s);
+  opacity: 0;
+}
+
+.particle-char {
+  font-size: var(--particle-size, 22px);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.particle-confetti {
+  width: var(--particle-size, 10px);
+  height: calc(var(--particle-size, 10px) * 0.7);
+  background: var(--particle-color, #d4a853);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shoot-particle {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.2) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(calc(var(--target-x) * 0.7), calc(var(--target-y) * 1.1)) scale(1.2) rotate(calc(var(--target-rot) * 0.5));
+  }
+  60% {
+    opacity: 0.95;
+    transform: translate(var(--target-x), calc(var(--target-y) + 40px)) scale(1) rotate(var(--target-rot));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--target-x) * 1.2), calc(var(--target-y) + 160px)) scale(0.8) rotate(calc(var(--target-rot) * 2));
+  }
+}
+
+/* ============================================================
+   GLOWING MESSAGE CARD (RISING FROM THE BOX)
+   ============================================================ */
+
+.message-card-envelope {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(40px) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 8;
+  width: 90vw;
+  max-width: 440px;
+  transition: all 0.9s cubic-bezier(0.2, 0.85, 0.3, 1.25);
+  transition-delay: 0.15s;
+}
+
+.message-card-envelope.card-revealed {
+  transform: translateX(-50%) translateY(-190px) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (min-width: 600px) {
+  .message-card-envelope.card-revealed {
+    transform: translateX(-50%) translateY(-210px) scale(1);
+  }
+}
+
+.message-card {
+  position: relative;
+  background: #faf3e8;
+  color: #2d1b4e;
+  border-radius: 12px;
+  padding: 26px 28px;
+  box-shadow: 
+    0 0 35px rgba(212, 168, 83, 0.45),
+    0 24px 50px -10px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 2px rgba(212, 168, 83, 0.4);
+  overflow: hidden;
+}
+
+.message-card-shimmer {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 60%
+  );
+  animation: card-shimmer 4s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes card-shimmer {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.message-card-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.message-card-stamp {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.message-card-body {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  line-height: 1.65;
+  color: #2d1b4e;
+  white-space: pre-line;
+  margin-bottom: 20px;
+}
+
+.message-card-signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.45rem;
+  color: #e85d75;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.signature-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2d1b4e;
+}
+
+/* ============================================================
+   REVEAL FOOTER (KEEPSAKE & EXPLORE AGAIN CTA)
+   ============================================================ */
+
+.reveal-footer {
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease;
+  transition-delay: 0.4s;
+  pointer-events: none;
+}
+
+.reveal-footer.footer-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.final-keepsake-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: #b8a9c9;
+  max-width: 520px;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.explore-again-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 34px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #2d1b4e;
+  background: linear-gradient(135deg, #f5d47e 0%, #d4a853 100%);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 4px 16px rgba(212, 168, 83, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+.explore-again-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 
+    0 8px 25px rgba(212, 168, 83, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #fff1ce 0%, #e2b763 100%);
+}
+
+.explore-again-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.explore-again-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.4), transparent, rgba(255, 255, 255, 0.4));
+  pointer-events: none;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .gift-box-wrapper,
+  .gift-lid,
+  .burst-particle,
+  .message-card-envelope,
+  .message-card-shimmer,
+  .tap-hint-badge,
+  .tap-hint-pulse,
+  .reveal-footer,
+  .explore-again-btn {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .gift-box-wrapper.is-opened .gift-lid {
+    transform: translateY(-80px) !important;
+  }
+
+  .message-card-envelope.card-revealed {
+    transform: translateX(-50%) translateY(-190px) !important;
+  }
+}

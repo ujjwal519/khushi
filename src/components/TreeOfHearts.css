@@ -1,0 +1,656 @@
+/* ============================================================
+   TREE OF HEARTS STYLES
+   Romantic botanical tree with 12 pink/red hearts & 1 golden heart.
+   Palette: Blush Pink, Burgundy, Ivory, and Muted Gold
+   ============================================================ */
+
+.tree-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 20px 100px 20px;
+  background-color: #1a0f20;
+  background-image: 
+    radial-gradient(circle at 50% 25%, rgba(232, 196, 196, 0.15) 0%, transparent 55%),
+    radial-gradient(circle at 20% 70%, rgba(74, 21, 37, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(45, 27, 78, 0.6) 0%, transparent 60%);
+  color: #faf3e8;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tree-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ------------------------------------------------------------
+   AMBIENT BACKGROUND PARTICLES
+   ------------------------------------------------------------ */
+.tree-ambient-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tree-ambient-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 93, 117, 0.12) 0%, rgba(212, 168, 83, 0.08) 45%, transparent 70%);
+  filter: blur(40px);
+}
+
+.tree-stardust {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffd56b;
+  box-shadow: 0 0 6px rgba(255, 213, 107, 0.8);
+  animation: stardustTwinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes stardustTwinkle {
+  0% { transform: scale(0.6); opacity: 0.3; }
+  100% { transform: scale(1.3); opacity: 0.9; }
+}
+
+/* ------------------------------------------------------------
+   HEADER
+   ------------------------------------------------------------ */
+.tree-header {
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 680px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(74, 21, 37, 0.7);
+  border: 1px solid rgba(232, 196, 196, 0.35);
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f7c8d0;
+  margin-bottom: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.tree-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #faf3e8;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 20px rgba(74, 21, 37, 0.8), 0 0 30px rgba(232, 93, 117, 0.3);
+}
+
+.tree-subheading {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 2.2vw, 1.12rem);
+  line-height: 1.6;
+  color: #e8c4c4;
+  margin: 0 0 20px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Progress Bar */
+.tree-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 6px;
+}
+
+.tree-progress-bar {
+  width: 100%;
+  height: 7px;
+  background: rgba(74, 21, 37, 0.7);
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 168, 83, 0.3);
+}
+
+.tree-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e85d75 0%, #ffd56b 100%);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+.tree-progress-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #ffd56b;
+  letter-spacing: 0.02em;
+}
+
+/* All Hearts Explored Banner */
+.tree-completion-banner {
+  margin-top: 18px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, rgba(74, 21, 37, 0.95) 0%, rgba(45, 27, 78, 0.95) 100%);
+  border: 1.5px solid #d4a853;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(212, 168, 83, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: bannerFadeIn 0.6s ease-out;
+}
+
+@keyframes bannerFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.completion-hearts-icon {
+  font-size: 1.6rem;
+}
+
+.completion-hearts-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #faf3e8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------
+   TREE STAGE & SVG CANOPY
+   ------------------------------------------------------------ */
+.tree-stage {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 1000 / 760;
+  min-height: 480px;
+  border-radius: 24px;
+  overflow: visible;
+}
+
+.tree-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+}
+
+/* ------------------------------------------------------------
+   HEARTS OVERLAY & NODES
+   ------------------------------------------------------------ */
+.tree-hearts-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tree-heart-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  z-index: 5;
+  transform-origin: top center;
+}
+
+/* Sway Animations for Hanging Hearts */
+.sway-1 { animation: heartSway1 4s ease-in-out infinite; }
+.sway-2 { animation: heartSway2 4.6s ease-in-out infinite; }
+.sway-3 { animation: heartSway3 3.8s ease-in-out infinite; }
+.sway-gold { animation: heartSwayGold 3.2s ease-in-out infinite; }
+
+@keyframes heartSway1 {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-4deg); }
+  50% { transform: translate(-50%, -50%) rotate(4deg); }
+}
+
+@keyframes heartSway2 {
+  0%, 100% { transform: translate(-50%, -50%) rotate(5deg); }
+  50% { transform: translate(-50%, -50%) rotate(-3deg); }
+}
+
+@keyframes heartSway3 {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-3deg); }
+  50% { transform: translate(-50%, -50%) rotate(5deg); }
+}
+
+@keyframes heartSwayGold {
+  0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(-3deg); }
+  50% { transform: translate(-50%, -50%) scale(1.08) rotate(3deg); }
+}
+
+/* Vine connecting heart to branch */
+.heart-vine {
+  width: 2px;
+  height: 16px;
+  background: linear-gradient(180deg, rgba(74, 21, 37, 0.8) 0%, var(--heart-accent, #e85d75) 100%);
+  margin-bottom: -2px;
+}
+
+.golden-vine {
+  width: 2.5px;
+  height: 20px;
+  background: linear-gradient(180deg, #d4a853 0%, #ffd56b 100%);
+}
+
+/* Interactive Heart Button */
+.tree-heart-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tree-heart-btn:hover {
+  transform: scale(1.22);
+}
+
+.tree-heart-btn:focus-visible {
+  outline: 2px solid #ffd56b;
+  outline-offset: 4px;
+}
+
+.tree-heart-icon {
+  width: 34px;
+  height: 34px;
+  fill: var(--heart-accent, #e85d75);
+  filter: drop-shadow(0 0 8px var(--heart-accent, #e85d75)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
+}
+
+.tree-heart-btn:hover .tree-heart-icon {
+  filter: drop-shadow(0 0 16px var(--heart-accent, #e85d75)) drop-shadow(0 0 24px rgba(255, 255, 255, 0.8));
+}
+
+.heart-number-badge {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Explored State */
+.tree-heart-node.is-explored .tree-heart-icon {
+  opacity: 0.85;
+}
+
+.heart-explored-sparkle {
+  position: absolute;
+  bottom: 0px;
+  right: -2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #2a0d18;
+  border: 1.5px solid #ffd56b;
+  color: #ffd56b;
+  font-size: 9px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------
+   SPECIAL GOLDEN HEART
+   ------------------------------------------------------------ */
+.golden-heart-node {
+  z-index: 10;
+}
+
+.golden-btn {
+  width: 58px;
+  height: 58px;
+}
+
+.golden-icon {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 0 16px rgba(212, 168, 83, 0.9)) drop-shadow(0 0 30px rgba(255, 213, 107, 0.7));
+}
+
+.golden-aura-glow {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 213, 107, 0.5) 0%, rgba(212, 168, 83, 0.15) 55%, transparent 75%);
+  animation: goldPulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes goldPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+
+.golden-crown-tag {
+  position: absolute;
+  top: -8px;
+  font-size: 16px;
+  filter: drop-shadow(0 0 6px #ffd56b);
+  animation: crownBounce 2s ease-in-out infinite;
+}
+
+@keyframes crownBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ------------------------------------------------------------
+   HEART MODAL CARD
+   ------------------------------------------------------------ */
+.heart-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.heart-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 8, 25, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.heart-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: #fdfaf6;
+  border: 1.5px solid #e8c4c4;
+  border-radius: 20px;
+  padding: 36px 32px 30px 32px;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(232, 93, 117, 0.25);
+  color: #2d1b4e;
+  z-index: 2;
+  animation: cardPopUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+@keyframes cardPopUp {
+  from { transform: scale(0.85) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Golden Modal Variant */
+.modal-golden .heart-modal-card {
+  background: #fffdf8;
+  border-color: #d4a853;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(212, 168, 83, 0.45);
+}
+
+/* Top bar with badge & close button */
+.modal-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.modal-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #d81b60;
+  background: rgba(232, 93, 117, 0.12);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(232, 93, 117, 0.25);
+}
+
+.badge-gold {
+  color: #a0781e;
+  background: rgba(212, 168, 83, 0.15);
+  border-color: rgba(212, 168, 83, 0.4);
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: #7b668f;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(45, 27, 78, 0.08);
+  color: #2d1b4e;
+}
+
+/* Corner Botanical Ornaments */
+.modal-corner {
+  position: absolute;
+  font-size: 14px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+.ornament-tl { top: 12px; left: 14px; }
+.ornament-tr { top: 12px; right: 14px; }
+.ornament-bl { bottom: 12px; left: 14px; }
+.ornament-br { bottom: 12px; right: 14px; }
+
+/* Modal Content */
+.modal-heart-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  color: #4a1525;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+.title-gold {
+  color: #8c6414;
+}
+
+.modal-message-body {
+  margin-bottom: 22px;
+}
+
+.modal-message-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #3b2848;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.modal-signoff {
+  text-align: right;
+  margin-bottom: 18px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #8c6414;
+}
+
+/* Modal Bottom Action Button */
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-confirm-btn {
+  background: linear-gradient(135deg, #4a1525 0%, #2d1b4e 100%);
+  color: #faf3e8;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 10px 26px;
+  border-radius: 9999px;
+  border: 1px solid rgba(232, 196, 196, 0.4);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(45, 27, 78, 0.25);
+  transition: all 0.25s ease;
+}
+
+.modal-confirm-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(45, 27, 78, 0.35);
+  background: linear-gradient(135deg, #641c32 0%, #3e256b 100%);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #d4a853 0%, #b88628 100%);
+  color: #1a0f20;
+  font-weight: 700;
+  border-color: #ffd56b;
+  box-shadow: 0 4px 16px rgba(212, 168, 83, 0.4);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #e6b85e 0%, #c9932d 100%);
+  box-shadow: 0 6px 22px rgba(212, 168, 83, 0.55);
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE DESIGN (Mobile First)
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .tree-section {
+    padding: 60px 14px 80px 14px;
+  }
+
+  .tree-stage {
+    min-height: 400px;
+  }
+
+  .tree-heart-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .tree-heart-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .golden-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .golden-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .heart-modal-card {
+    padding: 26px 20px 22px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tree-stage {
+    min-height: 340px;
+  }
+
+  .tree-heart-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .tree-heart-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .heart-number-badge {
+    font-size: 9px;
+  }
+
+  .golden-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .golden-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .tree-heading {
+    font-size: 1.85rem;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .sway-1, .sway-2, .sway-3, .sway-gold,
+  .tree-stardust, .golden-aura-glow, .golden-crown-tag,
+  .tree-progress-fill, .tree-heart-btn, .heart-modal-card {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#21183b"/>
+      <stop offset="50%" stop-color="#3c2152"/>
+      <stop offset="100%" stop-color="#552c66"/>
+    </linearGradient>
+    <radialGradient id="glow5" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#e85d75" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e85d75" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#skyGrad5)"/>
+  <circle cx="300" cy="260" r="180" fill="url(#glow5)"/>
+
+  <!-- Sparkles -->
+  <g fill="#ffd56b" opacity="0.8">
+    <circle cx="120" cy="140" r="3"/>
+    <circle cx="480" cy="130" r="3"/>
+    <circle cx="130" cy="390" r="2.5"/>
+    <circle cx="470" cy="370" r="3"/>
+  </g>
+
+  <!-- Dual Heart Motif -->
+  <g transform="translate(255, 185)">
+    <path d="M30 65 C30 65, 0 40, 0 20 A 16 16 0 0 1 30 15 A 16 16 0 0 1 60 20 C 60 40, 30 65, 30 65 Z" fill="#e85d75" opacity="0.95" stroke="#faf3e8" stroke-width="3"/>
+    <path d="M60 70 C60 70, 35 48, 35 30 A 14 14 0 0 1 60 25 A 14 14 0 0 1 85 30 C 85 48, 60 70, 60 70 Z" fill="#ffd56b" opacity="0.85" stroke="#faf3e8" stroke-width="3"/>
+  </g>
+
+  <text x="300" y="365" font-family="'Playfair Display', Georgia, serif" font-size="28" fill="#faf3e8" font-weight="600" text-anchor="middle" letter-spacing="1">
+    Memory Five 💖
+  </text>
+  <text x="300" y="405" font-family="'Inter', sans-serif" font-size="16" fill="#e8c4c4" text-anchor="middle">
+    This one's special
+  </text>
+  <text x="300" y="445" font-size="22" text-anchor="middle">
+    🌸 💖 🌸
+  </text>
+</svg>

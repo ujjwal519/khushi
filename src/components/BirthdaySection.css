@@ -1,0 +1,877 @@
+/* ============================================================
+   BIRTHDAY SECTION STYLES
+   Colors: midnight purple (#1a1035), deep plum (#2d1b4e),
+   blush pink (#e8c4c4), warm cream (#faf3e8), subtle gold (#d4a853),
+   heart red (#e85d75).
+   ============================================================ */
+
+.birthday-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 20px 100px;
+  background: linear-gradient(180deg, #1a1035 0%, #2d1b4e 45%, #24133d 80%, #1a1035 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  box-sizing: border-box;
+  color: #faf3e8;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ------------------------------------------------------------
+   SOFT FLOATING HEARTS IN BACKGROUND
+   ------------------------------------------------------------ */
+.birthday-hearts-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.birthday-bg-heart {
+  position: absolute;
+  bottom: -40px;
+  color: #e85d75;
+  opacity: 0.22;
+  filter: drop-shadow(0 0 10px rgba(232, 93, 117, 0.4));
+  animation: bdayHeartFloat linear infinite;
+  will-change: transform, opacity;
+}
+
+.birthday-bg-heart svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+@keyframes bdayHeartFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.35;
+  }
+  60% {
+    transform: translateY(-60vh) translateX(30px) rotate(15deg) scale(1.05);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-115vh) translateX(-25px) rotate(-12deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   MAIN SECTION CONTAINER
+   ------------------------------------------------------------ */
+.birthday-container {
+  position: relative;
+  z-index: 10;
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Decorative top tag */
+.birthday-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  margin-bottom: 20px;
+  border-radius: 9999px;
+  background: rgba(45, 27, 78, 0.7);
+  border: 1px solid rgba(212, 168, 83, 0.4);
+  backdrop-filter: blur(8px);
+  color: #d4a853;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Heading & Subheading */
+.birthday-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #faf3e8;
+  margin: 0 0 14px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #faf3e8 40%, #e8c4c4 75%, #d4a853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 30px rgba(212, 168, 83, 0.25);
+  letter-spacing: -0.01em;
+}
+
+.birthday-subheading {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  line-height: 1.6;
+  color: #c9a0a0;
+  margin: 0 0 32px 0;
+  max-width: 580px;
+  font-weight: 400;
+}
+
+/* ------------------------------------------------------------
+   COUNTDOWN / KEEPSAKE BOX
+   ------------------------------------------------------------ */
+.countdown-wrapper {
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 42px;
+}
+
+.countdown-note {
+  font-size: 0.9rem;
+  color: #d4a853;
+  margin-bottom: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.countdown-box {
+  background: rgba(45, 27, 78, 0.65);
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  border-radius: 14px;
+  padding: 14px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(212, 168, 83, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.countdown-box:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 168, 83, 0.6);
+}
+
+.countdown-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  font-weight: 700;
+  color: #faf3e8;
+  line-height: 1.1;
+  margin-bottom: 4px;
+  text-shadow: 0 0 12px rgba(212, 168, 83, 0.4);
+}
+
+.countdown-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #e8c4c4;
+  text-transform: uppercase;
+}
+
+/* Keepsake Badge (shown when countdown expires) */
+.keepsake-wrapper {
+  width: 100%;
+  max-width: 540px;
+  margin-bottom: 42px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, rgba(45, 27, 78, 0.7) 0%, rgba(61, 33, 80, 0.75) 100%);
+  border: 1.5px solid rgba(212, 168, 83, 0.5);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 24px rgba(212, 168, 83, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: keepsakeGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes keepsakeGlow {
+  0% {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 16px rgba(212, 168, 83, 0.15);
+  }
+  100% {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 28px rgba(212, 168, 83, 0.35);
+  }
+}
+
+.keepsake-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  color: #d4a853;
+  font-weight: 600;
+}
+
+.keepsake-text {
+  font-size: 0.95rem;
+  color: #faf3e8;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------
+   PURE CSS ANIMATED BIRTHDAY CAKE
+   ------------------------------------------------------------ */
+.cake-stage {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 290px;
+  margin: 10px 0 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Instruction / Hint */
+.cake-hint {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #faf3e8;
+  background: rgba(45, 27, 78, 0.7);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px solid rgba(232, 196, 196, 0.3);
+  backdrop-filter: blur(6px);
+  animation: hintPulse 2.5s ease-in-out infinite alternate;
+  z-index: 20;
+}
+
+@keyframes hintPulse {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+/* Relight button */
+.cake-relight-btn {
+  position: absolute;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #faf3e8;
+  background: linear-gradient(135deg, rgba(212, 168, 83, 0.35), rgba(45, 27, 78, 0.8));
+  border: 1px solid rgba(212, 168, 83, 0.7);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 21;
+}
+
+.cake-relight-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, rgba(212, 168, 83, 0.6), rgba(45, 27, 78, 0.9));
+  box-shadow: 0 0 16px rgba(212, 168, 83, 0.5);
+}
+
+/* Plate / Cake Stand */
+.cake-plate {
+  position: absolute;
+  bottom: 12px;
+  width: 320px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #d4a853 0%, #8c6a26 100%);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  z-index: 2;
+}
+
+.cake-plate-pedestal {
+  position: absolute;
+  bottom: 0;
+  width: 90px;
+  height: 16px;
+  background: linear-gradient(180deg, #8c6a26 0%, #4a3610 100%);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Bottom Tier */
+.cake-tier-bottom {
+  position: absolute;
+  bottom: 24px;
+  width: 250px;
+  height: 80px;
+  background: linear-gradient(180deg, #3d2150 0%, #261234 100%);
+  border-radius: 16px 16px 8px 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.3);
+  z-index: 4;
+  overflow: visible;
+}
+
+/* Cream stripe on bottom tier */
+.cake-tier-bottom-filling {
+  position: absolute;
+  top: 42%;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(90deg, #e8c4c4 0%, #faf3e8 50%, #e8c4c4 100%);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Bottom tier frosting drips */
+.cake-drips-bottom {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 18px;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.drip {
+  width: 16px;
+  height: 14px;
+  background: #e8c4c4;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.drip:nth-child(even) {
+  height: 18px;
+  background: #faf3e8;
+}
+
+/* Top Tier */
+.cake-tier-top {
+  position: absolute;
+  bottom: 96px;
+  width: 180px;
+  height: 64px;
+  background: linear-gradient(180deg, #f5e4dc 0%, #e8c4c4 100%);
+  border-radius: 14px 14px 6px 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  z-index: 6;
+  overflow: visible;
+}
+
+/* Top tier decorative cream dots */
+.cake-cream-dots {
+  position: absolute;
+  top: -7px;
+  left: 6px;
+  right: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cream-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #faf3e8;
+  box-shadow: 0 2px 6px rgba(212, 168, 83, 0.3);
+}
+
+/* Candles Row */
+.cake-candles {
+  position: absolute;
+  bottom: 154px;
+  width: 160px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  z-index: 10;
+}
+
+/* Individual Candle */
+.cake-candle-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 4px;
+  user-select: none;
+  background: none;
+  border: none;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.cake-candle-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.cake-candle-wrapper:focus-visible {
+  outline: 2px solid #d4a853;
+  border-radius: 6px;
+}
+
+/* Flame */
+.candle-flame-container {
+  position: relative;
+  width: 14px;
+  height: 22px;
+  margin-bottom: 2px;
+}
+
+.candle-flame {
+  position: absolute;
+  inset: 0;
+  width: 14px;
+  height: 22px;
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    #ffffff 0%,
+    #ffe600 35%,
+    #ff6b35 70%,
+    rgba(232, 93, 117, 0.4) 100%
+  );
+  border-radius: 50% 50% 25% 25%;
+  box-shadow:
+    0 0 10px #ffe600,
+    0 0 20px rgba(255, 107, 53, 0.8),
+    0 -4px 10px rgba(255, 230, 0, 0.4);
+  transform-origin: 50% 90%;
+  animation: flameFlicker 1.8s ease-in-out infinite alternate;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.candle-flame.blown-out {
+  opacity: 0;
+  transform: scale(0.2) translateY(-10px);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* Smoke puff when blown out */
+.candle-smoke {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.candle-smoke.active {
+  animation: smokePuff 1.2s ease-out forwards;
+}
+
+@keyframes smokePuff {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-50%) translateY(0) scale(0.8);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateX(-30%) translateY(-14px) scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-70%) translateY(-26px) scale(2.4);
+  }
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: scale(1) rotate(-1.5deg);
+    opacity: 0.95;
+  }
+  25% {
+    transform: scale(1.08, 0.94) rotate(1deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.96, 1.05) rotate(-1deg);
+    opacity: 0.92;
+  }
+  75% {
+    transform: scale(1.04, 0.98) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.98, 1.02) rotate(-0.5deg);
+    opacity: 0.95;
+  }
+}
+
+/* Wick */
+.candle-wick {
+  width: 2px;
+  height: 5px;
+  background: #333333;
+  margin-bottom: 0;
+}
+
+/* Candle Body */
+.candle-body {
+  width: 10px;
+  height: 38px;
+  border-radius: 3px 3px 2px 2px;
+  background: repeating-linear-gradient(
+    45deg,
+    #faf3e8,
+    #faf3e8 4px,
+    #e85d75 4px,
+    #e85d75 8px
+  );
+  box-shadow: inset 1px 0 2px rgba(255, 255, 255, 0.5), inset -1px 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.cake-candle-wrapper:nth-child(2) .candle-body {
+  background: repeating-linear-gradient(
+    45deg,
+    #faf3e8,
+    #faf3e8 4px,
+    #d4a853 4px,
+    #d4a853 8px
+  );
+}
+
+.cake-candle-wrapper:nth-child(3) .candle-body {
+  background: repeating-linear-gradient(
+    45deg,
+    #faf3e8,
+    #faf3e8 4px,
+    #b8a9c9 4px,
+    #b8a9c9 8px
+  );
+}
+
+.cake-candle-wrapper:nth-child(4) .candle-body {
+  background: repeating-linear-gradient(
+    45deg,
+    #faf3e8,
+    #faf3e8 4px,
+    #e8c4c4 4px,
+    #e8c4c4 8px
+  );
+}
+
+.cake-candle-wrapper:nth-child(5) .candle-body {
+  background: repeating-linear-gradient(
+    45deg,
+    #faf3e8,
+    #faf3e8 4px,
+    #e85d75 4px,
+    #e85d75 8px
+  );
+}
+
+/* ------------------------------------------------------------
+   'MAKE A WISH' BUTTON & ACTIONS
+   ------------------------------------------------------------ */
+.wish-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 46px;
+  width: 100%;
+}
+
+.make-wish-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 42px;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  color: #faf3e8;
+  background: linear-gradient(135deg, #e85d75 0%, #c94060 50%, #992348 100%);
+  border: 1.5px solid rgba(250, 243, 232, 0.4);
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow:
+    0 0 24px rgba(232, 93, 117, 0.45),
+    0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.make-wish-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 0 32px rgba(232, 93, 117, 0.7),
+    0 8px 24px rgba(0, 0, 0, 0.5);
+  border-color: rgba(250, 243, 232, 0.8);
+}
+
+.make-wish-btn:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+.make-wish-btn:focus-visible {
+  outline: 2px solid #d4a853;
+  outline-offset: 4px;
+}
+
+.make-wish-btn-shimmer {
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: rotate(30deg);
+  animation: wishBtnSweep 3.5s ease-in-out infinite;
+}
+
+@keyframes wishBtnSweep {
+  0%, 60% {
+    left: -70%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+.wish-counter-badge {
+  font-size: 0.9rem;
+  color: #d4a853;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* ------------------------------------------------------------
+   CONFETTI PARTICLES (CSS ONLY)
+   ------------------------------------------------------------ */
+.confetti-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.confetti-dot {
+  position: absolute;
+  top: -20px;
+  border-radius: 50%;
+  animation-name: confettiFall;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
+  will-change: transform, opacity;
+}
+
+.confetti-dot.square {
+  border-radius: 2px;
+}
+
+.confetti-dot.ribbon {
+  border-radius: 1px;
+  width: 4px !important;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(105vh) rotate(720deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   BIRTHDAY MESSAGE CARD
+   ------------------------------------------------------------ */
+.birthday-card {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  background: rgba(45, 27, 78, 0.65);
+  border: 1.5px solid rgba(212, 168, 83, 0.35);
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(212, 168, 83, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: center;
+  overflow: hidden;
+}
+
+.birthday-card-ornament {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d4a853;
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  opacity: 0.8;
+}
+
+.birthday-card-message {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.05rem, 2.7vw, 1.25rem);
+  line-height: 1.85;
+  color: #faf3e8;
+  white-space: pre-line;
+  margin: 18px 0 28px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.birthday-card-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #e85d75;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  background: rgba(232, 93, 117, 0.12);
+  border: 1px solid rgba(232, 93, 117, 0.3);
+}
+
+/* ------------------------------------------------------------
+   MOBILE RESPONSIVENESS
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+  .birthday-section {
+    padding: 60px 16px 80px;
+  }
+
+  .cake-stage {
+    max-width: 300px;
+    height: 260px;
+  }
+
+  .cake-plate {
+    width: 260px;
+  }
+
+  .cake-plate-pedestal {
+    width: 70px;
+  }
+
+  .cake-tier-bottom {
+    width: 210px;
+    height: 70px;
+  }
+
+  .cake-tier-top {
+    width: 150px;
+    height: 56px;
+    bottom: 86px;
+  }
+
+  .cake-candles {
+    width: 130px;
+    bottom: 136px;
+  }
+
+  .candle-body {
+    width: 8px;
+    height: 32px;
+  }
+
+  .candle-flame-container {
+    width: 12px;
+    height: 18px;
+  }
+
+  .candle-flame {
+    width: 12px;
+    height: 18px;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+  }
+
+  .countdown-box {
+    padding: 10px 4px;
+    border-radius: 10px;
+  }
+
+  .countdown-number {
+    font-size: 1.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+  }
+
+  .make-wish-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 14px 28px;
+  }
+
+  .birthday-card {
+    padding: 28px 18px;
+    border-radius: 18px;
+  }
+}
+
+/* ------------------------------------------------------------
+   PREFERS REDUCED MOTION
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .birthday-bg-heart,
+  .make-wish-btn-shimmer,
+  .candle-flame,
+  .confetti-dot,
+  .keepsake-wrapper,
+  .cake-hint {
+    animation: none !important;
+  }
+
+  .candle-flame {
+    transition: opacity 0.2s ease !important;
+  }
+
+  .confetti-dot {
+    display: none !important;
+  }
+}

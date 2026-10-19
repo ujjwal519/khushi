@@ -1,0 +1,710 @@
+/* ============================================================
+   PersonalLetter.css — Romantic Envelope & Letter Component
+   ============================================================ */
+
+.personal-letter-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(circle at 50% 20%, rgba(45, 27, 78, 0.6) 0%, rgba(26, 16, 53, 0.95) 75%);
+  box-sizing: border-box;
+}
+
+.pl-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header above the envelope */
+.pl-section-header {
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 580px;
+}
+
+.pl-sparkle-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e8c4c4;
+  background: rgba(201, 160, 160, 0.12);
+  border: 1px solid rgba(201, 160, 160, 0.25);
+  margin-bottom: 12px;
+}
+
+.pl-main-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: #faf3e8;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.pl-sub-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #b8a9c9;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Stage container */
+.pl-stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  perspective: 1200px;
+}
+
+/* ============================================================
+   CLOSED ENVELOPE STYLES
+   ============================================================ */
+
+.pl-envelope-card {
+  width: 100%;
+  max-width: 500px;
+  min-height: 310px;
+  background: linear-gradient(145deg, #fffcf7 0%, #faf3e8 60%, #f2e5d0 100%);
+  border-radius: 14px;
+  position: relative;
+  box-shadow: 
+    0 15px 35px rgba(10, 5, 20, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(212, 168, 83, 0.35);
+  cursor: pointer;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: visible;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 0.35s ease;
+  user-select: none;
+}
+
+.pl-envelope-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 24px 48px rgba(10, 5, 20, 0.5),
+    0 4px 10px rgba(212, 168, 83, 0.25),
+    inset 0 0 0 1px rgba(212, 168, 83, 0.5);
+}
+
+.pl-envelope-card:focus-visible {
+  outline: 3px solid #d4a853;
+  outline-offset: 6px;
+}
+
+/* Envelope Flap SVG */
+.pl-envelope-flap-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+.pl-flap-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pl-flap-polygon {
+  fill: #f4ebd9;
+  filter: drop-shadow(0 3px 4px rgba(45, 27, 78, 0.12));
+}
+
+/* Floral Corner Accents */
+.pl-flower-corner {
+  position: absolute;
+  font-size: 1.3rem;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.pl-flower-corner.top-left {
+  top: 10px;
+  left: 12px;
+}
+
+.pl-flower-corner.top-right {
+  top: 10px;
+  right: 12px;
+}
+
+.pl-flower-corner.bottom-left {
+  bottom: 12px;
+  left: 12px;
+}
+
+.pl-flower-corner.bottom-right {
+  bottom: 12px;
+  right: 12px;
+}
+
+/* Envelope Body */
+.pl-envelope-body {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Postage Stamp */
+.pl-postage-stamp {
+  position: absolute;
+  top: 24px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pl-stamp-inner {
+  width: 44px;
+  height: 52px;
+  background: #fdf5e8;
+  border: 2px dashed #c9a0a0;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pl-stamp-icon {
+  font-size: 1.25rem;
+}
+
+.pl-stamp-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #2d1b4e;
+}
+
+.pl-postmark-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transform: rotate(-10deg);
+  opacity: 0.45;
+}
+
+.pm-line {
+  width: 32px;
+  height: 2px;
+  background: #2d1b4e;
+  border-radius: 2px;
+}
+
+/* Recipient Address Area */
+.pl-address-area {
+  margin-top: 50px;
+  padding-left: 20px;
+}
+
+.pl-airmail-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #b8a9c9;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pl-recipient-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: #2d1b4e;
+  line-height: 1.2;
+}
+
+.pl-recipient-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #6a537f;
+  margin-top: 2px;
+}
+
+/* Wax Seal */
+.pl-wax-seal {
+  position: absolute;
+  top: 92px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff7b92 0%, #e85d75 45%, #b8253f 80%, #7d1225 100%);
+  border: 2px solid rgba(212, 168, 83, 0.7);
+  box-shadow: 
+    0 6px 16px rgba(184, 37, 63, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 5;
+}
+
+.pl-envelope-card:hover .pl-wax-seal {
+  transform: translateX(-50%) scale(1.08);
+  box-shadow: 
+    0 8px 22px rgba(184, 37, 63, 0.7),
+    0 0 12px rgba(212, 168, 83, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.pl-wax-seal-inner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pl-wax-seal-heart {
+  font-size: 1.3rem;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Tap to Open Prompt */
+.pl-open-prompt {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.pl-prompt-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #2d1b4e;
+  background: rgba(232, 196, 196, 0.35);
+  border: 1px solid rgba(201, 160, 160, 0.5);
+  animation: plPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes plPulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(232, 93, 117, 0.15);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(232, 93, 117, 0.3);
+  }
+}
+
+/* ============================================================
+   OPEN UNFOLDED LETTER STYLES
+   ============================================================ */
+
+.pl-letter-sheet {
+  width: 100%;
+  max-width: 660px;
+  background: #faf3e8;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 
+    0 20px 50px rgba(10, 5, 20, 0.55),
+    0 4px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(212, 168, 83, 0.4);
+  box-sizing: border-box;
+  overflow: hidden;
+  animation: plUnfoldLetter 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes plUnfoldLetter {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Top bar with quick actions */
+.pl-sheet-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(45, 27, 78, 0.05);
+  border-bottom: 1px solid rgba(184, 169, 201, 0.25);
+}
+
+.pl-sheet-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6a537f;
+  font-weight: 600;
+}
+
+.pl-sheet-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pl-quick-read-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2d1b4e;
+  background: rgba(232, 196, 196, 0.45);
+  border: 1px solid rgba(201, 160, 160, 0.6);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pl-quick-read-btn:hover {
+  background: #e8c4c4;
+  transform: translateY(-1px);
+}
+
+.pl-icon-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #2d1b4e;
+  background: rgba(45, 27, 78, 0.08);
+  border: 1px solid rgba(45, 27, 78, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pl-icon-close-btn:hover {
+  background: rgba(232, 93, 117, 0.2);
+  color: #e85d75;
+  transform: scale(1.08);
+}
+
+/* Parchment Area with Fine Stationery Styling */
+.pl-sheet-parchment {
+  padding: 36px 32px 40px;
+  background-color: #faf3e8;
+  background-image: 
+    radial-gradient(rgba(45, 27, 78, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, #fffdfa 0%, #faf3e8 100%);
+  background-size: 18px 18px, 100% 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Inner decorative stationery border */
+.pl-sheet-parchment::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(212, 168, 83, 0.25);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.pl-parchment-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  opacity: 0.75;
+}
+
+.pl-floral-deco {
+  font-size: 1.1rem;
+}
+
+.pl-floral-divider {
+  font-family: 'Playfair Display', serif;
+  color: #b8a9c9;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+}
+
+.pl-parchment-heading {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  color: #2d1b4e;
+  text-align: center;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.pl-parchment-greeting {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2d1b4e;
+  margin-bottom: 20px;
+}
+
+/* Letter Body Text */
+.pl-parchment-body {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.pl-text-content {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #2d1b4e;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+/* Typewriter Caret */
+.pl-typewriter-caret {
+  display: inline-block;
+  font-weight: 300;
+  color: #e85d75;
+  margin-left: 2px;
+  animation: plBlink 0.9s step-start infinite;
+}
+
+@keyframes plBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Typing status bar */
+.pl-typing-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  margin-top: 12px;
+  background: rgba(184, 169, 201, 0.15);
+  border-radius: 8px;
+}
+
+.pl-typing-indicator {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #6a537f;
+}
+
+.pl-typing-indicator .dot-1 {
+  animation: plDot 1.4s infinite;
+}
+.pl-typing-indicator .dot-2 {
+  animation: plDot 1.4s 0.2s infinite;
+}
+.pl-typing-indicator .dot-3 {
+  animation: plDot 1.4s 0.4s infinite;
+}
+
+@keyframes plDot {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+.pl-skip-inline-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #2d1b4e;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Signoff & Sender */
+.pl-parchment-signoff {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(184, 169, 201, 0.4);
+  text-align: right;
+}
+
+.pl-signoff-line {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #6a537f;
+  margin-bottom: 6px;
+}
+
+.pl-sender-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d1b4e;
+  line-height: 1.2;
+}
+
+/* Footer Close Button */
+.pl-parchment-footer {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}
+
+.pl-fold-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #2d1b4e 0%, #3e2468 100%);
+  color: #faf3e8;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: 1px solid rgba(212, 168, 83, 0.4);
+  box-shadow: 0 4px 14px rgba(45, 27, 78, 0.25);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pl-fold-back-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #3e2468 0%, #523188 100%);
+  box-shadow: 0 6px 18px rgba(45, 27, 78, 0.35);
+}
+
+.pl-fold-back-btn:focus-visible {
+  outline: 2px solid #d4a853;
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (Mobile First)
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .personal-letter-section {
+    padding: 40px 12px;
+  }
+
+  .pl-envelope-card {
+    min-height: 270px;
+    padding: 18px 14px;
+  }
+
+  .pl-address-area {
+    margin-top: 40px;
+    padding-left: 10px;
+  }
+
+  .pl-postage-stamp {
+    top: 18px;
+    right: 12px;
+  }
+
+  .pl-wax-seal {
+    top: 76px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .pl-wax-seal-inner {
+    width: 38px;
+    height: 38px;
+  }
+
+  .pl-open-prompt {
+    margin-top: 40px;
+  }
+
+  .pl-sheet-parchment {
+    padding: 24px 18px 28px;
+  }
+
+  .pl-sheet-parchment::before {
+    inset: 8px;
+  }
+
+  .pl-text-content {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .pl-sender-name {
+    font-size: 1.7rem;
+  }
+
+  .pl-quick-read-btn {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION SUPPORT
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .pl-envelope-card,
+  .pl-wax-seal,
+  .pl-letter-sheet,
+  .pl-prompt-text,
+  .pl-fold-back-btn {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .pl-envelope-card:hover {
+    transform: none !important;
+  }
+
+  .pl-typewriter-caret {
+    animation: none !important;
+    opacity: 0;
+  }
+}
